@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Poppins:wght@300;400;500&family=Noto+Serif+Telugu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --maroon: #800020;
+            --gold: #FFD700;
+            --orange: #FFA500;
+            --yellow: #FFD700;
+            --green: #006400;
+            --cream: #FFFDD0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+            background-image: url('https://img.freepik.com/free-vector/abstract-luxury-beautiful-decorative-yellow-background_1055-6454.jpg?ga=GA1.1.1799501474.1750610506&semt=ais_hybrid&w=740');
+            background-size: contain;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        
+        /* Traditional Border */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 20px solid transparent;
+            border-image: url('https://t4.ftcdn.net/jpg/02/98/79/63/240_F_298796335_WlMp89URcha5FP9zkkzCNVzJuWSnp0HB.jpg') 30 round;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Header/Lord Venkateswara Section */
+        .header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,165,0,0.2) 100%);
+        }
+        
+        /*.deity-image {*/
+        /*    width: auto-fit;*/
+        /*    height: auto-fit;*/
+        /*    opacity: 0;*/
+        /*    animation: fadeIn 2s ease-in-out forwards 0.5s;*/
+        /*    filter: drop-shadow(0 0 10px rgba(255,215,0,0.7));*/
+        /*}*/
+        
+        .deity-image {
+            max-width: 400px;
+            max-height: 600px;
+            width: 80%;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInScale 2s ease-out forwards 0.5s;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9))
+                    drop-shadow(0 0 25px rgba(255, 165, 0, 0.7));
+            transition: transform 0.5s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 4rem;
+            color: var(--maroon);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards 1s;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Couple Names Section */
+        .couple-names {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to right, rgba(255,215,0,0.2), rgba(255,165,0,0.2), rgba(255,215,0,0.2));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .couple-names::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(to right, var(--maroon), var(--gold), var(--orange));
+        }
+        
+        .names-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .names-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .and-symbol {
+            font-family: 'Tangerine', cursive;
+            font-size: 3rem;
+            color: var(--maroon);
+            margin: 0.5rem 0;
+        }
+        
+        .name {
+            font-family: 'Noto Serif Telugu', serif;
+            font-size: 2.5rem;
+            color: var(--maroon);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .name::before, .name::after {
+            content: "✽";
+            color: var(--orange);
+            margin: 0 1rem;
+        }
+        
+        .telugu-text {
+            font-family: 'Noto Serif Telugu', serif;
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-top: 1rem;
+        }
+        
+        /* Pre-wedding Photos Section */
+        .photo-section {
+            padding: 4rem 2rem;
+            background-color: rgba(255, 253, 208, 0.7);
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif Telugu', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--maroon), var(--gold));
+            margin: 0.5rem auto;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            aspect-ratio: 4/5;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+        
+        .photo-item.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Muhurtham Section */
+        .muhurtham-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(128,0,32,0.1) 0%, rgba(255,165,0,0.1) 100%);
+            text-align: center;
+        }
+        
+        .muhurtham-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 253, 208, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--gold);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .muhurtham-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .muhurtham-container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed var(--orange);
+            border-radius: 15px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .muhurtham-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .muhurtham-item {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 1rem;
+        }
+        
+        .muhurtham-icon {
+            font-size: 1.5rem;
+            color: var(--maroon);
+        }
+        
+        .muhurtham-text {
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .muhurtham-text strong {
+            color: var(--maroon);
+            font-weight: 500;
+        }
+        
+        /* Banana Leaf Section */
+        .dinner-section {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .banana-leaf {
+            /* background-color: red; */
+            max-width: 600px;
+            margin: 0 auto;
+            background-image: url('banana3.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease;
+        }
+        
+        .banana-leaf.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .dinner-text {
+            font-family: 'Noto Serif Telugu', serif;
+            font-size: 1.8rem;
+            color: #333;
+            /* margin-top: 4rem; */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .dinner-time {
+            font-family: 'Tangerine', cursive;
+            font-size: 3rem;
+            color: var(--maroon);
+            margin-top: 1rem;
+        }
+        
+        /* Venue Section */
+        .venue-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0,100,0,0.1) 0%, rgba(255,215,0,0.1) 100%);
+        }
+        
+        .venue-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .venue-details {
+            background-color: rgba(255, 253, 208, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--green);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 1s ease;
+        }
+        
+        .venue-details.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .venue-title {
+            font-family: 'Noto Serif Telugu', serif;
+            font-size: 1.8rem;
+            color: var(--green);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .venue-address {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .venue-map {
+            height: 100%;
+            min-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 1s ease;
+        }
+        
+        .venue-map.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .venue-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Memories Gallery */
+        .memories-section {
+            padding: 4rem 2rem;
+            background-color: rgba(255, 253, 208, 0.7);
+        }
+        
+        .memories-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .memory-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 1/1;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .memory-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .memory-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .memory-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Footer Section */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(128,0,32,0.1) 0%, rgba(255,165,0,0.1) 100%);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(to right, var(--maroon), var(--gold), var(--orange));
+        }
+        
+        .invitation-text {
+            font-family: 'Tangerine', cursive;
+            font-size: 3rem;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        
+        .invitation-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .footer-flower {
+            width: 150px;
+            height: auto;
+            margin: 1rem auto;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 1s ease;
+        }
+        
+        .footer-flower.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .telugu-text {
+                font-size: 1.2rem;
+            }
+            
+            .venue-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .venue-details {
+                order: 1;
+            }
+            
+            .venue-map {
+                order: 2;
+                min-height: 250px;
+            }
+            
+            .dinner-text {
+                font-size: 1.5rem;
+            }
+            
+            .dinner-time {
+                font-size: 2.5rem;
+            }
+            
+            .invitation-text {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .name {
+                font-size: 1.8rem;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .muhurtham-text {
+                font-size: 1rem;
+            }
+            
+            .dinner-text {
+                font-size: 1.2rem;
+            }
+            
+            .dinner-time {
+                font-size: 2rem;
+            }
+            
+            .invitation-text {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Opening Section with Lord Venkateswara -->
+    <section class="header">
+        <img src="god1.png" alt="Lord Venkateswara" class="deity-image">
+        <h1>Wedding Invitation</h1>
+    </section>
+    
+    <!-- Bride & Groom Names Section -->
+    <section class="couple-names">
+        <div class="names-container">
+            <div class="name">రాజకుమారి</div>
+            <div class="telugu-text">కుమార్తె of శ్రీ & శ్రీమతి రాజు</div>
+            <div class="and-symbol">&</div>
+            <div class="name">రాజేంద్ర ప్రసాద్</div>
+            <div class="telugu-text">కుమారుడు of శ్రీ & శ్రీమతి రావు</div>
+        </div>
+    </section>
+    
+    <!-- Pre-wedding Photos Section -->
+    <section class="photo-section">
+        <h2 class="section-title">Our Journey Together</h2>
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="https://media.istockphoto.com/id/866987706/photo/indian-wedding-hands.jpg?s=612x612&w=0&k=20&c=6L-u9qhFPv9MjDnF4UK4AqjVbDKM4_8Xad72IHhwPZE=" alt="Couple Photo 1"/>
+            </div>
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1665960213508-48f07086d49c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWFuJTIwd2VkZGluZyUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fHww" alt="Couple Photo 2">
+            </div>
+            <!-- <div class="photo-item">
+                 <img src="https://i.imgur.com/3J9J9J9.jpg" alt="Couple Photo 3"> 
+            </div>  -->
+        </div>
+    </section>
+    
+    <!-- Muhurtham Details Section -->
+    <section class="muhurtham-section">
+        <h2 class="section-title">Wedding Ceremony</h2>
+        <div class="muhurtham-container">
+            <div class="muhurtham-details">
+                <div class="muhurtham-item">
+                    <div class="muhurtham-icon">📅</div>
+                    <div class="muhurtham-text"><strong>Date:</strong> 15th December 2023</div>
+                </div>
+                <div class="muhurtham-item">
+                    <div class="muhurtham-icon">⏰</div>
+                    <div class="muhurtham-text"><strong>Muhurtham:</strong> 09:30 AM to 11:00 AM</div>
+                </div>
+                <div class="muhurtham-item">
+                    <div class="muhurtham-icon">🔔</div>
+                    <div class="muhurtham-text"><strong>Reception:</strong> 6:00 PM onwards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Banana Leaf Dinner Section -->
+    <section class="dinner-section">
+        <h2 class="section-title">Dinner</h2>
+        <div class="banana-leaf">
+            <div class="dinner-text">మీరు అందరిని ఆహ్వానిస్తున్నాము</div>
+            <div class="dinner-time">07:30 PM onwards</div>
+        </div>
+    </section>
+    
+    <!-- Venue Details Section -->
+    <section class="venue-section">
+        <h2 class="section-title">Venue</h2>
+        <div class="venue-container">
+            <div class="venue-details">
+                <h3 class="venue-title">శ్రీ కృష్ణ కన్వెన్షన్ హాలు</h3>
+                <div class="venue-address">
+                    Plot No. 45, Road No. 14<br>
+                    Jubilee Hills, Hyderabad<br>
+                    Telangana - 500033<br>
+                    <br>
+                    Contact: +91 9876543210
+                </div>
+            </div>
+            <div class="venue-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.266589554693!2d78.4062333153434!3d17.44795050504098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9158f201b205%3A0x5c3b6a5b3b6a5b3b!2sSri%20Krishna%20Convention%20Hall!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Memories Gallery Section -->
+    <!-- <section class="memories-section">
+        <h2 class="section-title">Our Memories</h2>
+        <div class="memories-gallery">
+            <div class="memory-item">
+                <img src="https://i.imgur.com/4J9J9J9.jpg" alt="Memory 1">
+            </div>
+            <div class="memory-item">
+                <img src="https://i.imgur.com/5J9J9J9.jpg" alt="Memory 2">
+            </div>
+            <div class="memory-item">
+                <img src="https://i.imgur.com/6J9J9J9.jpg" alt="Memory 3">
+            </div>
+            <div class="memory-item">
+                <img src="https://i.imgur.com/7J9J9J9.jpg" alt="Memory 4">
+            </div>
+        </div>
+    </section> -->
+    
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="invitation-text">We await your gracious presence and blessings</div>
+        <img src="god2.png" alt="Floral Design" class="footer-flower">
+    </section>
+    
+    <script>
+        // Animation on scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Elements to animate
+            const sections = document.querySelectorAll('.names-container, .photo-item, .muhurtham-container, .banana-leaf, .venue-details, .venue-map, .memory-item, .invitation-text, .footer-flower');
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Add slight delay between photo items
+            const photoItems = document.querySelectorAll('.photo-item');
+            photoItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+            
+            // Add slight delay between memory items
+            const memoryItems = document.querySelectorAll('.memory-item');
+            memoryItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
